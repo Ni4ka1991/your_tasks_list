@@ -13,8 +13,8 @@ tasks = [
     "Learn computer architecture",
     "Learn Assembler",
     "Become a good programmer-real haсker"
-    "Learn folk-dance",
-    "Learn kyokushin"
+    "Participate in a folk-dance concert on tour",
+    "Get a green belt in kyokushin"
     ]
 
 # ######################

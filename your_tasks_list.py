@@ -1,5 +1,5 @@
 #!/usr/bin/env Python3
-
+from os import system
 
 
 # ########### DATA #########
@@ -23,7 +23,10 @@ while True:
     
     # ######## interaction ######
     
-    new_task = input( " Add task: " )
+    new_task = input( " Add task: \n" )
+
+    if( new_task == "\n" ):
+        break
     
     if new_task not in tasks:
         tasks.append( new_task)
@@ -32,6 +35,29 @@ while True:
     
     # ######## interaction ######
 
+    
+    # ## print the tasks #######
+    system( "clear" )
+
+    print( "TODO list", len( tasks ), ":-)" )
+    
+    for i in range( len( tasks )):
+        
+        print( "\t", i + 1, ">", tasks[i] )
+
     # ## print the tasks #######
 
-    print
+
+
+
+
+
+
+
+
+
+
+
+
+
+

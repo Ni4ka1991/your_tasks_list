@@ -12,9 +12,9 @@ tasks = [
     "Learn C",
     "Learn computer architecture",
     "Learn Assembler",
-    "Become a good programmer-real haсker"
+    "Become a good programmer-real haсker",
     "Participate in a folk-dance concert on tour",
-    "Get a green belt in kyokushin"
+    "Get a green belt in kyokushin",
     ]
 
 # ######################
@@ -37,7 +37,7 @@ print()
 # ########################
 
 
-
+## A LOT OF CODE ###
 
 while True:
     
@@ -61,6 +61,7 @@ while True:
   if new_task not in tasks:
    tasks.append( new_task)
   
+   system( "clear" )
    print( "Your new TODO list:", len( tasks ), ":-)" )
    for i in range( len( tasks )):
     print( "\t", i + 1, ">", tasks[i] )
@@ -74,6 +75,9 @@ while True:
     
  elif( new_task == "2" ):
   system( "clear" )
+# possibly:
+# if tasks is empty suggest to enter 1 to add task
+# else:
   print()
   print( "Your actual TODO list:", len( tasks ), ":-)" )
   for i in range( len( tasks )):
@@ -89,28 +93,39 @@ while True:
   for i in range( len( tasks )):
    print( "\t", i + 1, ">", tasks[i] )
   
-  i = input( " What task do you want to remove: \n" )
-  if( 0 <= i <= len(tasks )):
+  i = int( input( " What task do you want to remove: \n" ))
+  i -= 1  
+  if( 0 <= i <= len( tasks )):
    
+   print( "Are you shue you want to remove task ", i + 1, tasks[i], "?" )
+   verif = input( "\nEnter Y or N\n" )
+  
+   if( verif == "Y" ):
+    del tasks[i]
+    system( "clear" )
+    print()
+    print( "Your changed TODO list:", len( tasks ), ":-)" )
+    for i in range( len( tasks )):
+     print( "\t", i + 1, ">", tasks[i] )
+   else:
+    print( "You haven't made any changes in TODO list.\n" )
+    continue
+  else:
+   print( "Enter a number from the range: 1 to ", len(tasks))
+# need to think about other solution ###
 
+# ### -4- #### 
 
-
-
-    # ######## interaction ######
-
+ elif( new_task == "4" ):
+  print( "Are you shue you want to clear TODO list?" )
+  verif = input( "\nEnter Y or N\n" )
+  
+  if( verif == "Y" ):
+   tasks.clear()
+   print("Your TODO list is empty.\n")
+  else:
+   print( "You haven't made any changes in TODO list.\n" )
+   continue
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+   # ######## interaction ######
 

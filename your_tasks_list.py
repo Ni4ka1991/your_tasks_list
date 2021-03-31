@@ -19,23 +19,34 @@ tasks = [
 
 # ######################
 
-# ##### USER MAN  ##########
+# ##### func  ##########
 
-system( "clear" )
-print()
-print( "Info how to use TODO list" )
-print()
-print( "***************************************" )
-print()
-print( "Enter 1 to add a new task in TODO list" )
-print( "Enter 2 to show TODO list" )
-print( "Enter 3 to remove one task in TODO list" )
-print( "Enter 4 to clear TODO list" )
-print( "Enter 0 to EXIT" )
-print()
+def view_menu(): 
+ system( "clear" )
+ print()
+ print( "Info how to use TODO list" )
+ print()
+ print( "***************************************" )
+ print()
+ print( "Enter 1 to add a new task in TODO list" )
+ print( "Enter 2 to show TODO list" )
+ print( "Enter 3 to remove one task in TODO list" )
+ print( "Enter 4 to clear TODO list" )
+ print( "Enter 0 to EXIT" )
+ print()
 
-# ########################
 
+def view_tasks():
+ system( "clear" )
+ print( "Your TODO list:", len( tasks ), ":-)" )
+ for i in range( len( tasks )):
+  print( "\t", i + 1, ">", tasks[i] )
+
+
+ ########################
+
+
+view_menu()
 
 ## A LOT OF CODE ###
 
@@ -45,56 +56,30 @@ while True:
     
  new_task = input( " Enter any number from the menu: \n" )
 
-# ### -0- ####
-
  if( new_task == "0" ):
-  break
-
-# ############
-
-# ### -1- #### 
+  break 
 
  elif( new_task == "1" ):
-  
+  view_tasks()
   new_task = input( " Add new task: \n" )
   
   if new_task not in tasks:
    tasks.append( new_task)
-  
-   system( "clear" )
-   print( "Your new TODO list:", len( tasks ), ":-)" )
-   for i in range( len( tasks )):
-    print( "\t", i + 1, ">", tasks[i] )
+   view_tasks()
 
   else:
     print( "This task already exists!" )
-
-
-# ### -2- ####
-
     
  elif( new_task == "2" ):
-  system( "clear" )
-# possibly:
-# if tasks is empty suggest to enter 1 to add task
-# else:
-  print()
-  print( "Your actual TODO list:", len( tasks ), ":-)" )
-  for i in range( len( tasks )):
-   print( "\t", i + 1, ">", tasks[i] )
-
-# ### -3- ####
+  view_tasks()
 
  elif( new_task == "3" ):
   
-  system( "clear" )
-  print()
-  print( "Your actual TODO list:", len( tasks ), ":-)" )
-  for i in range( len( tasks )):
-   print( "\t", i + 1, ">", tasks[i] )
-  
+  view_tasks()
+
   i = int( input( " What task do you want to remove: \n" ))
   i -= 1  
+  
   if( 0 <= i <= len( tasks )):
    
    print( "Are you shue you want to remove task ", i + 1, tasks[i], "?" )
@@ -102,11 +87,8 @@ while True:
   
    if( verif == "Y" ):
     del tasks[i]
-    system( "clear" )
-    print()
-    print( "Your changed TODO list:", len( tasks ), ":-)" )
-    for i in range( len( tasks )):
-     print( "\t", i + 1, ">", tasks[i] )
+    view_tasks()
+
    else:
     print( "You haven't made any changes in TODO list.\n" )
     continue
@@ -123,6 +105,7 @@ while True:
   if( verif == "Y" ):
    tasks.clear()
    print("Your TODO list is empty.\n")
+   view_tasks()
   else:
    print( "You haven't made any changes in TODO list.\n" )
    continue

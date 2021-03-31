@@ -42,13 +42,16 @@ def view_tasks():
  for i in range( len( tasks )):
   print( "\t", i + 1, ">", tasks[i] )
 
+def without_changes( ):
+ print( "You haven't made any changes in TODO list.\n" )
+ view_menu()
+
+
 
  ########################
 
 
 view_menu()
-
-## A LOT OF CODE ###
 
 while True:
     
@@ -56,7 +59,7 @@ while True:
     
  new_task = input( " Enter any number from the menu: \n" )
 
- if( new_task == "0" ):
+ if( new_task ==   "0" ):
   break 
 
  elif( new_task == "1" ):
@@ -90,13 +93,11 @@ while True:
     view_tasks()
 
    else:
-    print( "You haven't made any changes in TODO list.\n" )
+    without_changes()
     continue
   else:
    print( "Enter a number from the range: 1 to ", len(tasks))
-# need to think about other solution ###
 
-# ### -4- #### 
 
  elif( new_task == "4" ):
   print( "Are you shue you want to clear TODO list?" )
@@ -107,8 +108,7 @@ while True:
    print("Your TODO list is empty.\n")
    view_tasks()
   else:
-   print( "You haven't made any changes in TODO list.\n" )
-   continue
-    
+   without_changes()
+   continue 
    # ######## interaction ######
 
